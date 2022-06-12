@@ -16,12 +16,9 @@
   border: none;
   font-size: 1rem;
   background-color: #F2ECFF;
+  border-bottom: 2px solid #8E8E8E;
 
   transition: all 200ms ease-in-out;
-}
-
-.tab-button:not(:last-of-type){
-  border-bottom: 2px solid #8E8E8E;
 }
 
 .tab-button:hover{
@@ -32,7 +29,7 @@
 .tab-button:active{
   background-color: hsl(165, 100%, 28%);
 
-  transition: background-color 100ms ease;
+  transition: background-color 50ms ease;
 }
 
 .tab-button_active{
@@ -40,4 +37,13 @@
   border-right: 3px solid #00C896;
   color: #00C896;
   font-weight: bolder;
+}
+
+#add-button{
+  width: 100%;
+  padding: .5rem;
+  outline: none;
+  border: none;
+  background-color: #00C896;
+  font-size: 2rem;
 }
