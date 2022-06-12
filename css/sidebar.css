@@ -27,7 +27,7 @@
 }
 
 .tab-button:active{
-  background-color: hsl(165, 100%, 28%);
+  background-color: #008f6b;
 
   transition: background-color 50ms ease;
 }

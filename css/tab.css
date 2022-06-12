@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 
 .tab{
   background-color: #8E8E8E;
@@ -12,4 +13,21 @@
 
 .tab-content_active{
   display: block;
+}
+
+.home-page{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home-page-title{
+  font-size: 2rem;
+  font-family: 'Lobster', cursive;
+}
+
+.home-page-p{
+  line-height: 1.5rem;
+  text-align: center;
+  padding: .5rem;
 }
