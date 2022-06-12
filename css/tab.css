@@ -35,4 +35,51 @@
 .todoList{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 1rem;
+}
+
+.list{
+  border-radius: .5rem;
+  padding: .5rem;
+  text-align: center;
+}
+
+.list-header{
+  /* background-color: orange; */
+}
+
+.not-done .list-header{
+  border-bottom: 3px solid crimson;
+}
+
+.doing .list-header{
+  border-bottom: 3px solid yellow;
+}
+
+.done .list-header{
+  border-bottom: 3px solid #00C896;
+}
+
+/* .not-done-taskList{} */
+
+.task{
+  margin: .5rem .25rem;
+  padding-inline: .5rem;
+  text-align: left;
+  border-radius: .5rem;
+  background-color: aliceblue;
+  color: #8E8E8E;
+  cursor: pointer;
+}
+
+.not-done .task{
+  border-right: 1.5rem solid crimson;
+}
+
+.doing .task{
+  border-right: 1.5rem solid yellow;
+}
+
+.done .task{
+  border-right: 1.5rem solid #00C896;
 }
