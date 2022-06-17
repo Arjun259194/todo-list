@@ -44,10 +44,6 @@
   text-align: center;
 }
 
-.list-header{
-  /* background-color: orange; */
-}
-
 .not-done .list-header{
   border-bottom: 3px solid crimson;
 }
