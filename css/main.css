@@ -3,21 +3,61 @@ body {
   font-family: "Ubuntu Mono", monospace;
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 
-button, a {
+button,
+a {
   cursor: pointer;
 }
 
+@-webkit-keyframes flash {
+  0% {
+    box-shadow: 0 0 0.15rem #6be8ff;
+  }
+  25% {
+    box-shadow: 0 0 0.25rem #6be8ff;
+  }
+  50% {
+    box-shadow: 0 0 0.5rem #6be8ff;
+  }
+  75% {
+    box-shadow: 0 0 0.75rem #6be8ff;
+  }
+  100% {
+    box-shadow: 0 0 1rem #6be8ff;
+  }
+}
+
+@keyframes flash {
+  0% {
+    box-shadow: 0 0 0.15rem #6be8ff;
+  }
+  25% {
+    box-shadow: 0 0 0.25rem #6be8ff;
+  }
+  50% {
+    box-shadow: 0 0 0.5rem #6be8ff;
+  }
+  75% {
+    box-shadow: 0 0 0.75rem #6be8ff;
+  }
+  100% {
+    box-shadow: 0 0 1rem #6be8ff;
+  }
+}
 .main {
   display: grid;
   grid-template-columns: 1fr 6fr;
   background-color: #0d0d30;
-  color: #F2ECFF;
+  color: #f2ecff;
   overflow: hidden;
 }
 .main .sidebar {
   height: 100vh;
+  padding: 0.5em;
+  display: flex;
+  flex-direction: column;
   overflow-y: auto;
 }
 .main .sidebar::-webkit-scrollbar {
@@ -35,30 +75,57 @@ button, a {
   display: flex;
   flex-direction: column;
 }
-.main .sidebar .tab-list .tab-button {
+.main .sidebar .tab-button {
   padding: 0.5em 1em;
-  margin: 0.1rem 0.25rem 0 0.25rem;
+  margin: 0.25rem 0.25rem;
   font-size: 1rem;
   background-color: #0d0d30;
-  color: #F2ECFF;
-  border: 2px solid #6be8ff;
+  color: #f2ecff;
+  border: 1px solid #6be8ff;
   border-radius: 1em;
   transition: all 300ms ease-in-out;
 }
-.main .sidebar .tab-list .tab-button_active {
+.main .sidebar .tab-button_active {
   margin: 1rem 0.25rem;
   background-color: #0d0d30;
-  color: #F2ECFF;
-  border: 1px solid #68DABA;
-  box-shadow: 0 0.25rem 0 #68DABA;
+  color: #68daba;
+  border: 1px solid #68daba;
+  box-shadow: 0 0.25rem 0 #68daba;
   font-weight: bold;
-  text-transform: uppercase;
-}
-.main .sidebar .tab-list:hover .tab-button {
-  margin: 0.25rem 0.25rem;
+  text-shadow: 0 0 0.25rem #6be8ff;
 }
 .main .sidebar #add-button {
-  display: block;
+  aspect-ratio: 1/1;
+  width: 25%;
+  margin: 0.5rem;
+  align-self: center;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 50%;
+  background-color: #68daba;
+  color: #0d0d30;
+}
+.main .sidebar #add-button:hover {
+  box-shadow: 0 0 0rem #6be8ff;
+  -webkit-animation-name: flash;
+          animation-name: flash;
+  -webkit-animation-timing-function: ease-in;
+          animation-timing-function: ease-in;
+  -webkit-animation-duration: 300ms;
+          animation-duration: 300ms;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+}
+.main .sidebar #add-button:active {
+  -webkit-animation: none;
+          animation: none;
+  box-shadow: 0 0 0.5rem #6be8ff;
+}
+
+.tab {
+  height: 100vh;
 }
 
 .tab-content {

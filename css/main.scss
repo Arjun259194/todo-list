@@ -1,107 +1,144 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
 //*variables
-$bg-clr:#0d0d30;
-$fg-clr:#F2ECFF;
-$primary-clr:lighten(#00859E,40%);
-$secondary-clr:#68DABA;
+$bg-clr: #0d0d30;
+$fg-clr: #f2ecff;
+$primary-clr: lighten(#00859e, 40%);
+$secondary-clr: #68daba;
 
-$ndone:hsl(348, 73%, 60%);
-$doing:hsl(60, 73%, 60%);
-$done:hsl(120, 73%, 60%);
-$padding:.5em;
-$margin:.5rem;
-$border:.5em;
+$ndone: hsl(348, 73%, 60%);
+$doing: hsl(60, 73%, 60%);
+$done: hsl(120, 73%, 60%);
+$padding: 0.5em;
+$margin: 0.5rem;
+$border: 0.5em;
 $font-size: 1rem;
 
 //*mixin
-@mixin color-theme ($bg,$text) {
+@mixin color-theme($bg, $text) {
   background-color: $bg;
   color: $text;
 }
 
-body{
-  font-family: 'Ubuntu Mono', monospace;
+body {
+  font-family: "Ubuntu Mono", monospace;
   margin: 0;
   padding: 0;
+  overflow: hidden;
   // box-sizing: border-box;
 }
 
-button,a{
+button,
+a {
   cursor: pointer;
 }
 
-.main{
+//*animations
+@keyframes flash {
+  0% {
+    box-shadow: 0 0 0.15rem $primary-clr;
+  }
+  25% {
+    box-shadow: 0 0 0.25rem $primary-clr;
+  }
+  50% {
+    box-shadow: 0 0 0.5rem $primary-clr;
+  }
+  75% {
+    box-shadow: 0 0 0.75rem $primary-clr;
+  }
+  100% {
+    box-shadow: 0 0 1rem $primary-clr;
+  }
+}
+
+.main {
   display: grid;
   grid-template-columns: 1fr 6fr;
-  @include color-theme($bg-clr,$fg-clr);
+  @include color-theme($bg-clr, $fg-clr);
   overflow: hidden;
 
-  .sidebar{
+  .sidebar {
     height: 100vh;
+    padding: $padding;
+    display: flex;
+    flex-direction: column;
     overflow-y: auto;
-    
-    &::-webkit-scrollbar{
-      width: .5rem;
+
+    &::-webkit-scrollbar {
+      width: 0.5rem;
     }
-    
-    &::-webkit-scrollbar-track{
+
+    &::-webkit-scrollbar-track {
       background-color: $bg-clr;
     }
-    
-    &::-webkit-scrollbar-thumb{
+
+    &::-webkit-scrollbar-thumb {
       background-color: $primary-clr;
       border-radius: $border;
       border: 2px solid $bg-clr;
     }
-    
-    .tab-list{
+
+    .tab-list {
       display: flex;
       flex-direction: column;
-      
-      .tab-button{
-        padding: $padding $padding * 2;
-        margin: $margin/5 $margin / 2 0 $margin / 2;
-        font-size: $font-size;
-        @include color-theme($bg-clr,$fg-clr);
-        border: 2px solid $primary-clr;
-        border-radius: $border * 2;
-        transition: all 300ms ease-in-out;
-      }
-
-      .tab-button_active{
-        margin: $margin * 2 $margin / 2;
-        @include color-theme($bg-clr, $fg-clr);
-        border: 1px solid $secondary-clr;
-        box-shadow: 0 .25rem 0 $secondary-clr;
-        font-weight: bold;
-        text-transform: uppercase;
-      }
-
-      &:hover{
-        .tab-button{
-          margin: $margin/2 $margin / 2;
-        }
-      }
-
     }
 
-    #add-button{
-      // position: relative;
-      display: block;
+    .tab-button {
+      padding: $padding $padding * 2;
+      margin: $margin/2 $margin / 2;
+      font-size: $font-size;
+      @include color-theme($bg-clr, $fg-clr);
+      border: 1px solid $primary-clr;
+      border-radius: $border * 2;
+      transition: all 300ms ease-in-out;
+    }
+
+    .tab-button_active {
+      margin: $margin * 2 $margin / 2;
+      @include color-theme($bg-clr, $secondary-clr);
+      border: 1px solid $secondary-clr;
+      box-shadow: 0 0.25rem 0 $secondary-clr;
+      font-weight: bold;
+      text-shadow: 0 0 .25rem $primary-clr;
+    }
+
+    #add-button {
+      aspect-ratio: 1/1;
+      width: 25%;
+      margin: $margin;
+      align-self: center;
+      font-size: $font-size + $font-size / 2;
+      border: none;
+      border-radius: 50%;
+      @include color-theme($secondary-clr, $bg-clr);
+
+      &:hover {
+        box-shadow: 0 0 0rem $primary-clr;
+        animation-name: flash;
+        animation-timing-function: ease-in;
+        animation-duration: 300ms;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+      }
+
+      &:active {
+        animation: none;
+        box-shadow: 0 0 0.5rem $primary-clr;
+      }
     }
   }
 }
 
-.tab-content{
+.tab {
+  height: 100vh;
+}
+
+.tab-content {
   height: 100%;
   display: none;
 }
 
-
-.tab-content_active{
+.tab-content_active {
   display: block;
 }
-
-
-
