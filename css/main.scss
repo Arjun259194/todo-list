@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+// @import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 //*variables
 $bg-clr: #0d0d30;
@@ -20,12 +21,13 @@ $font-size: 1rem;
   color: $text;
 }
 
+*,
 body {
-  font-family: "Ubuntu Mono", monospace;
+  font-family: "Montserrat", sans-serif;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  // box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 button,
@@ -100,7 +102,7 @@ a {
       border: 1px solid $secondary-clr;
       box-shadow: 0 0.25rem 0 $secondary-clr;
       font-weight: bold;
-      text-shadow: 0 0 .25rem $primary-clr;
+      text-shadow: 0 0 0.25rem $primary-clr;
     }
 
     #add-button {
@@ -132,13 +134,66 @@ a {
 
 .tab {
   height: 100vh;
-}
 
-.tab-content {
-  height: 100%;
-  display: none;
-}
+  .home-page {
+    padding: $padding * 2;
+    height: 100%;
+    position: relative;
 
-.tab-content_active {
-  display: block;
+    .home-page-title {
+      margin: $margin * 2 0;
+      font-size: $font-size * 2;
+      text-transform: uppercase;
+    }
+
+    .home-page-p {
+      font-size: $font-size;
+      line-height: 2em;
+    }
+
+    .home-btn {
+      font-size: $font-size;
+      padding: $padding $padding * 4;
+      margin: $margin * 4 0 0 0;
+      border: none;
+      border-radius: $border;
+      @include color-theme($secondary-clr, $bg-clr);
+
+      &:hover{
+        box-shadow: 0 0 0rem $primary-clr;
+        animation-name: flash;
+        animation-timing-function: ease-in;
+        animation-duration: 500ms;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+      }
+    }
+
+    & > * {
+      position: relative;
+      z-index: 10;
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-color: darken($secondary-clr, 20%);
+      clip-path: polygon(29% 0, 100% 0, 100% 100%, 80% 100%, 0 100%);
+      z-index: 5;
+    }
+  }
+
+  .tab-content {
+    height: 100%;
+    display: none;
+  }
+
+  .tab-content_active {
+    display: block;
+  }
 }
