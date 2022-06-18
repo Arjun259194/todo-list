@@ -1,7 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
+//*variables
+$bg-clr:#0d0d30;
+$fg-clr:#ddf7ff;
+$secondary-clr:lighten(#005B81,40%);
+$border-clr:#005B81;
+$font-clr:#68DABA;
+
+$ndone:hsl(348, 73%, 60%);
+$doing:hsl(60, 73%, 60%);
+$done:hsl(120, 73%, 60%);
+$padding:.5em;
+$border:.5em;
+
+//*mixin
+@mixin color-theme ($bg,$text) {
+  background-color: $bg;
+  color: $text;
+}
+
 body{
   font-family: 'Ubuntu Mono', monospace;
+  margin: 0;
+  padding: 0;
+}
+
+.main{
+  @include color-theme($bg-clr,$fg-clr);
 }
 
 .tab-content{
@@ -16,8 +41,8 @@ body{
 
 
 .tab-button_active{
-  background-color: #5C5C5C;
-  border-right: 3px solid #00C896;
-  color: #00C896;
+  @include color-theme($bg-clr, $fg-clr);
+  border: none;
+  border-right: 3px solid $secondary-clr;
   font-weight: bolder;
 }
