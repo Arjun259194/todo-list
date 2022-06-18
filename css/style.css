@@ -1,5 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2:wght@400;500;600;700;800&display=swap');
+
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+ul{
+  list-style: none;
+}
+
+img{
+  width: 50%;
+}
+
+a,button{
+  cursor: pointer;
+}
+
+.main{
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  color: white;
+  font-family: 'Baloo Bhaina 2', cursive;
+}
+
+.btn-1{
+  padding: .5rem 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  outline: none;
+  border: 2px solid #000066 ;
+  border-radius: .25rem;
+  background-color: #00C896;
+  color: #000066;
+
+  transition: all 300ms ease-out;
+}
+
+.btn-1:hover{
+  background-color: #000066;
+  color: #00C896;
+  border: 2px solid #00C896 ;
 }
