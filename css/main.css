@@ -1,0 +1,318 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+*,
+body {
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+button,
+a {
+  cursor: pointer;
+}
+
+@-webkit-keyframes flash {
+  0% {
+    box-shadow: 0 0 0.15rem #6be8ff;
+  }
+  25% {
+    box-shadow: 0 0 0.25rem #6be8ff;
+  }
+  50% {
+    box-shadow: 0 0 0.5rem #6be8ff;
+  }
+  75% {
+    box-shadow: 0 0 0.75rem #6be8ff;
+  }
+  100% {
+    box-shadow: 0 0 1rem #6be8ff;
+  }
+}
+
+@keyframes flash {
+  0% {
+    box-shadow: 0 0 0.15rem #6be8ff;
+  }
+  25% {
+    box-shadow: 0 0 0.25rem #6be8ff;
+  }
+  50% {
+    box-shadow: 0 0 0.5rem #6be8ff;
+  }
+  75% {
+    box-shadow: 0 0 0.75rem #6be8ff;
+  }
+  100% {
+    box-shadow: 0 0 1rem #6be8ff;
+  }
+}
+.main {
+  display: grid;
+  grid-template-columns: 1fr 6fr;
+  background-color: #0d0d30;
+  color: #f2ecff;
+  overflow: hidden;
+}
+.main .sidebar {
+  height: 100vh;
+  padding: 0.5em;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+.main .sidebar::-webkit-scrollbar {
+  width: 0.5rem;
+}
+.main .sidebar::-webkit-scrollbar-track {
+  background-color: #0d0d30;
+}
+.main .sidebar::-webkit-scrollbar-thumb {
+  background-color: #6be8ff;
+  border-radius: 0.5em;
+  border: 2px solid #0d0d30;
+}
+.main .sidebar .tab-list {
+  display: flex;
+  flex-direction: column;
+}
+.main .sidebar .tab-button {
+  padding: 0.5em 1em;
+  margin: 0.25rem 0.25rem;
+  font-size: 1rem;
+  background-color: #0d0d30;
+  color: #f2ecff;
+  border: 1px solid #6be8ff;
+  border-radius: 1em;
+  transition: all 300ms ease-in-out;
+}
+.main .sidebar .tab-button_active {
+  margin: 1rem 0.25rem;
+  background-color: #0d0d30;
+  color: #68daba;
+  border: 1px solid #68daba;
+  box-shadow: 0 0.25rem 0 #68daba;
+  font-weight: bold;
+  text-shadow: 0 0 0.25rem #6be8ff;
+}
+.main .sidebar #add-button {
+  aspect-ratio: 1/1;
+  width: 25%;
+  margin: 0.5rem;
+  align-self: center;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 50%;
+  background-color: #68daba;
+  color: #0d0d30;
+}
+.main .sidebar #add-button:hover {
+  box-shadow: 0 0 0rem #6be8ff;
+  -webkit-animation-name: flash;
+          animation-name: flash;
+  -webkit-animation-timing-function: ease-in;
+          animation-timing-function: ease-in;
+  -webkit-animation-duration: 300ms;
+          animation-duration: 300ms;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+}
+.main .sidebar #add-button:active {
+  -webkit-animation: none;
+          animation: none;
+  box-shadow: 0 0 0.5rem #6be8ff;
+}
+
+.tab {
+  height: 100vh;
+}
+.tab .home-page {
+  padding: 1em;
+  height: 100%;
+  position: relative;
+}
+.tab .home-page .home-page-title {
+  margin: 1rem 0;
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+.tab .home-page .home-page-p {
+  font-size: 1rem;
+  line-height: 2em;
+}
+.tab .home-page .home-btn {
+  font-size: 1rem;
+  padding: 0.5em 2em;
+  margin: 2rem 0 0 0;
+  border: none;
+  border-radius: 0.5em;
+  background-color: #68daba;
+  color: #0d0d30;
+}
+.tab .home-page .home-btn:hover {
+  box-shadow: 0 0 0rem #6be8ff;
+  -webkit-animation-name: flash;
+          animation-name: flash;
+  -webkit-animation-timing-function: ease-in;
+          animation-timing-function: ease-in;
+  -webkit-animation-duration: 500ms;
+          animation-duration: 500ms;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+}
+.tab .home-page .home-btn:active {
+  -webkit-animation: none;
+          animation: none;
+  box-shadow: 0 0 0.5rem #6be8ff;
+}
+.tab .home-page > * {
+  position: relative;
+  z-index: 10;
+}
+.tab .home-page::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #2bb18b;
+  -webkit-clip-path: polygon(29% 0, 100% 0, 100% 100%, 80% 100%, 0 100%);
+          clip-path: polygon(29% 0, 100% 0, 100% 100%, 80% 100%, 0 100%);
+  z-index: 5;
+}
+.tab .todoList {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  background-color: #00b0d1;
+  color: #f2ecff;
+  position: relative;
+}
+.tab .todoList > * {
+  position: relative;
+  z-index: 10;
+}
+.tab .todoList::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #0d0d30;
+  -webkit-clip-path: polygon(0 0, 0% 100%, 22% 100%);
+          clip-path: polygon(0 0, 0% 100%, 22% 100%);
+  z-index: 5;
+}
+.tab .list {
+  margin: 0.25rem;
+  padding: 0.25em;
+}
+.tab .list.not-done .list-header {
+  border: 2px solid hsl(348deg, 73%, 60%);
+  box-shadow: 0 0.4rem 0 hsl(348deg, 73%, 60%);
+}
+.tab .list.not-done .task-btn {
+  background-color: hsl(60deg, 73%, 60%);
+  color: #0d0d30;
+}
+.tab .list.doing .list-header {
+  border: 2px solid hsl(60deg, 73%, 60%);
+  box-shadow: 0 0.4rem 0 hsl(60deg, 73%, 60%);
+}
+.tab .list.doing .task-btn {
+  background-color: hsl(147deg, 73%, 60%);
+  color: #0d0d30;
+}
+.tab .list.done .list-header {
+  border: 2px solid hsl(147deg, 73%, 60%);
+  box-shadow: 0 0.4rem 0 hsl(147deg, 73%, 60%);
+}
+.tab .list.done .task-btn {
+  background-color: hsl(348deg, 73%, 60%);
+  color: #0d0d30;
+}
+.tab .list .list-header {
+  padding: 0.5em;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 0.5em;
+  background-color: #0d0d30;
+  color: #f2ecff;
+}
+.tab .list .add-task {
+  padding: 0 0.5em;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.5em;
+  background-color: #232380;
+  color: #f2ecff;
+}
+.tab .list .add-task:hover {
+  box-shadow: 0 0 0rem #6be8ff;
+  -webkit-animation-name: flash;
+          animation-name: flash;
+  -webkit-animation-timing-function: ease-in;
+          animation-timing-function: ease-in;
+  -webkit-animation-duration: 500ms;
+          animation-duration: 500ms;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+}
+.tab .list .add-task:active {
+  -webkit-animation: none;
+          animation: none;
+  box-shadow: 0 0 0.5rem #6be8ff;
+}
+.tab .list .taskList {
+  height: 100%;
+  padding-top: 1em;
+  overflow-y: auto;
+}
+.tab .list .task {
+  padding: 1em 0.5em 2.5em 0.5em;
+  border-radius: 0.5em;
+  position: relative;
+  background-color: #181858;
+  color: #f2ecff;
+  transition: all 300ms ease-in-out;
+}
+.tab .list .task .task-btn {
+  display: none;
+  padding-inline: 0.5em;
+  top: 0;
+  right: 0;
+  position: absolute;
+  border: none;
+  text-transform: uppercase;
+}
+.tab .list .task:hover .task-btn {
+  display: block;
+}
+.tab .list .task:not(:first-child) {
+  box-shadow: 0 -1rem 1rem #0d0d30;
+  margin-top: -1rem;
+}
+.tab .list .task:not(:first-child):hover {
+  transform: translateY(-0.5rem);
+}
+.tab .list .task:hover ~ .task {
+  transform: translateY(1rem);
+}
+.tab .tab-content {
+  height: 100%;
+  display: none;
+}
+.tab .tab-content_active {
+  display: block;
+}/*# sourceMappingURL=main.css.map */

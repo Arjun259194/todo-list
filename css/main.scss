@@ -1,0 +1,341 @@
+// @import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+//*variables
+$bg-clr: #0d0d30;
+$fg-clr: #f2ecff;
+$primary-clr: lighten(#00859e, 40%);
+$secondary-clr: #68daba;
+
+$ndone: hsl(348, 73%, 60%);
+$doing: hsl(60, 73%, 60%);
+$done: hsl(147, 73%, 60%);
+$padding: 0.5em;
+$margin: 0.5rem;
+$border: 0.5em;
+$font-size: 1rem;
+
+//*mixin
+@mixin color-theme($bg, $text) {
+  background-color: $bg;
+  color: $text;
+}
+
+@mixin header-clr($clr) {
+  border: 2px solid $clr;
+  box-shadow: 0 .4rem 0 $clr;
+}
+
+*,
+body {
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+button,
+a {
+  cursor: pointer;
+}
+
+//*animations
+@keyframes flash {
+  0% {
+    box-shadow: 0 0 0.15rem $primary-clr;
+  }
+  25% {
+    box-shadow: 0 0 0.25rem $primary-clr;
+  }
+  50% {
+    box-shadow: 0 0 0.5rem $primary-clr;
+  }
+  75% {
+    box-shadow: 0 0 0.75rem $primary-clr;
+  }
+  100% {
+    box-shadow: 0 0 1rem $primary-clr;
+  }
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 1fr 6fr;
+  @include color-theme($bg-clr, $fg-clr);
+  overflow: hidden;
+
+  .sidebar {
+    height: 100%; //!changed
+    padding: $padding;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      width: 0.5rem;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: $bg-clr;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $primary-clr;
+      border-radius: $border;
+      border: 2px solid $bg-clr;
+    }
+
+    .tab-list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .tab-button {
+      padding: $padding $padding * 2;
+      margin: $margin/2 $margin / 2;
+      font-size: $font-size;
+      @include color-theme($bg-clr, $fg-clr);
+      border: 1px solid $primary-clr;
+      border-radius: $border * 2;
+      transition: all 300ms ease-in-out;
+    }
+
+    .tab-button_active {
+      margin: $margin * 2 $margin / 2;
+      @include color-theme($bg-clr, $secondary-clr);
+      border: 1px solid $secondary-clr;
+      box-shadow: 0 0.25rem 0 $secondary-clr;
+      font-weight: bold;
+      text-shadow: 0 0 0.25rem $primary-clr;
+    }
+
+    #add-button {
+      aspect-ratio: 1/1;
+      width: 25%;
+      margin: $margin;
+      align-self: center;
+      font-size: $font-size + $font-size / 2;
+      border: none;
+      border-radius: 50%;
+      @include color-theme($secondary-clr, $bg-clr);
+
+      &:hover {
+        box-shadow: 0 0 0rem $primary-clr;
+        animation-name: flash;
+        animation-timing-function: ease-in;
+        animation-duration: 300ms;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+      }
+
+      &:active {
+        animation: none;
+        box-shadow: 0 0 0.5rem $primary-clr;
+      }
+    }
+  }
+}
+
+.tab {
+  height: 100%; //!changed
+
+  .home-page {
+    padding: $padding * 2;
+    height: 100%;
+    position: relative;
+
+    .home-page-title {
+      margin: $margin * 2 0;
+      font-size: $font-size * 2;
+      text-transform: uppercase;
+    }
+
+    .home-page-p {
+      font-size: $font-size;
+      line-height: 2em;
+    }
+
+    .home-btn {
+      font-size: $font-size;
+      padding: $padding $padding * 4;
+      margin: $margin * 4 0 0 0;
+      border: none;
+      border-radius: $border;
+      @include color-theme($secondary-clr, $bg-clr);
+
+      &:hover {
+        box-shadow: 0 0 0rem $primary-clr;
+        animation-name: flash;
+        animation-timing-function: ease-in;
+        animation-duration: 500ms;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+      }
+
+      &:active {
+        animation: none;
+        box-shadow: 0 0 0.5rem $primary-clr;
+      }
+    }
+
+    & > * {
+      position: relative;
+      z-index: 10;
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-color: darken($secondary-clr, 20%);
+      clip-path: polygon(29% 0, 100% 0, 100% 100%, 80% 100%, 0 100%);
+      z-index: 5;
+    }
+  }
+
+  .todoList {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    @include color-theme(darken($primary-clr, 30%), $fg-clr);
+    position: relative;
+
+    & > * {
+      position: relative;
+      z-index: 10;
+      // border: 2px solid red;
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-color: $bg-clr;
+      clip-path: polygon(0 0, 0% 100%, 22% 100%);
+      z-index: 5;
+    }
+  }
+
+  .list {
+    margin: $margin / 2;
+    padding: $padding / 2;
+
+    &.not-done {
+      .list-header {
+        @include header-clr($ndone);
+      }
+      .task-btn {
+        @include color-theme($doing, $bg-clr);
+      }
+    }
+
+    &.doing {
+      .list-header {
+        @include header-clr($doing);
+      }
+      .task-btn {
+        @include color-theme($done, $bg-clr);
+      }
+    }
+
+    &.done {
+      .list-header {
+        @include header-clr($done);
+      }
+      .task-btn {
+        @include color-theme($ndone, $bg-clr);
+      }
+    }
+
+    .list-header {
+      padding: $padding;
+      display: flex;
+      justify-content: space-between;
+      border-radius: $border;
+      @include color-theme($bg-clr, $fg-clr);
+    }
+
+    .add-task {
+      padding: 0 $padding;
+      font-size: $font-size;
+      border: none;
+      border-radius: $border;
+      @include color-theme(lighten($bg-clr, 20%), $fg-clr);
+
+      &:hover {
+        box-shadow: 0 0 0rem $primary-clr;
+        animation-name: flash;
+        animation-timing-function: ease-in;
+        animation-duration: 500ms;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+      }
+
+      &:active {
+        animation: none;
+        box-shadow: 0 0 0.5rem $primary-clr;
+      }
+    }
+
+    .taskList {
+      height: 100%;
+      padding-top: $padding * 2;
+      overflow-y: auto;
+    }
+
+    .task {
+      padding: $padding * 2 $padding $padding * 5 $padding;
+      border-radius: $border;
+      position: relative;
+      @include color-theme(lighten($bg-clr, 10%), $fg-clr);
+      transition: all 300ms ease-in-out;
+
+      .task-btn {
+        display: none;
+        padding-inline: $padding;
+        top: 0;
+        right: 0;
+        position: absolute;
+        border: none;
+        text-transform: uppercase;
+      }
+
+      &:hover {
+        .task-btn {
+          display: block;
+        }
+      }
+
+      &:not(:first-child) {
+        box-shadow: 0 -1rem 1rem $bg-clr;
+        margin-top: -1rem;
+
+        &:hover {
+          transform: translateY(-0.5rem);
+        }
+      }
+
+      &:hover ~ .task {
+        transform: translateY(1rem);
+      }
+    }
+  }
+
+  .tab-content {
+    height: 100%;
+    display: none;
+  }
+
+  .tab-content_active {
+    display: block;
+  }
+}
