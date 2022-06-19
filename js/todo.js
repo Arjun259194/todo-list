@@ -2,17 +2,17 @@ function $(selector) {
   return document.querySelector(selector);
 }
 
-function createTask(text, btnClassName, elementClassName) {
+function createTask(text, btnClassName, elementClassName, btnText) {
   const task = document.createElement('li');
   task.className = elementClassName;
-  task.innerHTML = `<span>${text}</span><button class="${btnClassName}">✔</button>`
+  task.innerHTML = `<span>${text}</span><button class="${btnClassName}">${btnText}</button>`
   console.log(task);
   return task
-  // return `<li class="doing task">${text}<button class="movingToDone">✔</button></li>`;
 }
 
 function taskManegament() {
   activeList = $('.tab-content_active');
+
   //*not-done to doing
   activeList.querySelectorAll('.movingToDoing').forEach(e => {
     e.addEventListener('click', () => {
@@ -20,7 +20,7 @@ function taskManegament() {
       const text = movingTask.querySelector('span').innerText;
       console.log(text);
       e.parentNode.parentNode.removeChild(movingTask);
-      $('.doing-taskList').appendChild(createTask(text, 'movingToDone', 'doing task'));
+      $('.doing-taskList').appendChild(createTask(text, 'movingToDone task-btn', 'doing task', 'next'));
       taskManegament();
     })
   })
@@ -32,7 +32,7 @@ function taskManegament() {
       const text = movingTask.querySelector('span').innerText;
       console.log(text);
       e.parentNode.parentNode.removeChild(movingTask);
-      $('.done-taskList').appendChild(createTask(text, 'movingToNotDone', 'done task'));
+      $('.done-taskList').appendChild(createTask(text, 'movingToNotDone task-btn', 'done task', 'remove'));
       taskManegament();
     })
   })
@@ -44,7 +44,6 @@ function taskManegament() {
       const text = movingTask.querySelector('span').innerText;
       console.log(text);
       e.parentNode.parentNode.removeChild(movingTask);
-      $('.not-done-taskList').appendChild(createTask(text, 'movingToDoing', 'not-done task'));
       taskManegament();
     })
   })
@@ -53,12 +52,7 @@ function taskManegament() {
 //variables
 let activeList;
 
-document.querySelectorAll(".tab-button").forEach(element => {
-  element.addEventListener('click', () => {
-    setTimeout(() => {
-      taskManegament();
-    }, 0);
+document.querySelectorAll(".tab-button")
+  .forEach(element => {
+    element.addEventListener('click', () => setTimeout(() => taskManegament(), 0))
   });
-});
-
-
