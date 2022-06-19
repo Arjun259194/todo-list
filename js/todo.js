@@ -20,7 +20,7 @@ function taskManegament() {
       const text = movingTask.querySelector('span').innerText;
       console.log(text);
       e.parentNode.parentNode.removeChild(movingTask);
-      $('.doing-taskList').appendChild(createTask(text, 'movingToDone task-btn', 'doing task', 'next'));
+      activeList.querySelector('.doing-taskList').appendChild(createTask(text, 'movingToDone task-btn', 'doing task', 'next'));
       taskManegament();
     })
   })
@@ -32,7 +32,7 @@ function taskManegament() {
       const text = movingTask.querySelector('span').innerText;
       console.log(text);
       e.parentNode.parentNode.removeChild(movingTask);
-      $('.done-taskList').appendChild(createTask(text, 'movingToNotDone task-btn', 'done task', 'remove'));
+      activeList.querySelector('.done-taskList').appendChild(createTask(text, 'movingToNotDone task-btn', 'done task', 'remove'));
       taskManegament();
     })
   })
