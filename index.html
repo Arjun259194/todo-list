@@ -13,10 +13,10 @@
       <section class="sidebar">
         <button class="tab-button" data-tab-button-id="home">Home</button>
         <div class="tab-list">
-          <button class="tab-button" data-tab-button-id="1">list #1</button>
-          <button class="tab-button" data-tab-button-id="2">list #2</button>
+          <!-- ?<button class="tab-button" data-tab-button-id="1">list #1</button>
+          ?<button class="tab-button" data-tab-button-id="2">list #2</button> -->
         </div>
-        <button id="add-button">+</button>
+        <button id="add-button" onclick="createList();">+</button>
       </section>
       <section class="tab">
         <div class="tab-content" data-tab-id="home">
@@ -27,7 +27,45 @@
             <a href="pages/info.html" target="_blank"><button class="home-btn">Get started</button></a>
           </div>
         </div>
-        <div class="tab-content" data-tab-id="1">
+        <!-- ?:<div class="tab-content" data-tab-id="1">
+          ?:<div class="todoList">
+            ?:<dev class="not-done list">
+              ?:<div class="list-header">
+                ?:<h1>Not Done</h1>
+                ?:<button class="add-task">+</button>
+              ?:</div>
+              ?:<ul class="not-done-taskList taskList">
+                ?:<li class="not-done task"><span>Lorem ipsum dolor sit amet. </span><button class="movingToDoing task-btn">next</button></li>
+                ?:<li class="not-done task"><span>Lorem ipsum dolor sit </span><button class="movingToDoing task-btn">next</button></li>
+                ?:<li class="not-done task"><span>Lorem ipsum amet. </span><button class="movingToDoing task-btn">next</button></li>
+                ?:<li class="not-done task"><span>Lorem dolor sit amet. </span><button class="movingToDoing task-btn">next</button></li>
+                ?:<li class="not-done task"><span>Lorem Lorem. ipsum dolor sit amet. </span><button class="movingToDoing task-btn">next</button></li>
+              ?:</ul>
+            ?:</dev>
+            ?:<dev class="doing list">
+              ?:<div class="list-header">
+                ?:<h1>Doing</h1>
+                ?:<button class="add-task">+</button>
+              ?:</div>
+              ?:<ul class="doing-taskList taskList">
+                ?:<li class="doing task"><span>Lorem ipsum dolor sit.</span> <button class="movingToDone task-btn">next</button></li>
+                ?:<li class="doing task"><span>Lorem ipsum .</span> <button class="movingToDone task-btn">next</button></li>
+              ?:</ul>
+            ?:</dev>
+            ?:<dev class="done list">
+              ?:<div class="list-header">
+                ?:<h1>Done</h1>
+                ?:<button class="add-task">+</button>
+              ?:</div>
+              ?:<ul class="done-taskList taskList">
+                ?:<li class="done task"><span>Lorem ipsum dolor sit amet, consectetur adipisicing.</span><button class="movingToNotDone task-btn">remove</button></li>
+                ?:<li class="done task"><span> dolor sit amet, consectetur adipisicing.</span><button class="movingToNotDone task-btn">remove</button></li>
+              ?:</ul>
+            ?:</dev>
+          ?:</div>
+        ?:</div>-->
+
+        <!--<div class="tab-content" data-tab-id="2">
           <div class="todoList">
             <dev class="not-done list">
               <div class="list-header">
@@ -35,10 +73,8 @@
                 <button class="add-task">+</button>
               </div>
               <ul class="not-done-taskList taskList">
-                <li class="not-done task"><span>Lorem ipsum dolor sit amet. </span><button class="movingToDoing task-btn">next</button></li>
-                <li class="not-done task"><span>Lorem ipsum dolor sit </span><button class="movingToDoing task-btn">next</button></li>
-                <li class="not-done task"><span>Lorem ipsum amet. </span><button class="movingToDoing task-btn">next</button></li>
-                <li class="not-done task"><span>Lorem dolor sit amet. </span><button class="movingToDoing task-btn">next</button></li>
+                <li class="not-done task"><span>download sass from npm </span><button class="movingToDoing task-btn">next</button></li>
+                <li class="not-done task"><span>buy the new manga volumn </span><button class="movingToDoing task-btn">next</button></li>
                 <li class="not-done task"><span>Lorem Lorem. ipsum dolor sit amet. </span><button class="movingToDoing task-btn">next</button></li>
               </ul>
             </dev>
@@ -48,8 +84,7 @@
                 <button class="add-task">+</button>
               </div>
               <ul class="doing-taskList taskList">
-                <li class="doing task"><span>Lorem ipsum dolor sit.</span> <button class="movingToDone task-btn">next</button></li>
-                <li class="doing task"><span>Lorem ipsum .</span> <button class="movingToDone task-btn">next</button></li>
+                <li class="doing task"><span>read for exam next week</span> <button class="movingToDone task-btn">next</button></li>
               </ul>
             </dev>
             <dev class="done list">
@@ -58,47 +93,17 @@
                 <button class="add-task">+</button>
               </div>
               <ul class="done-taskList taskList">
-                <li class="done task"><span>Lorem ipsum dolor sit amet, consectetur adipisicing.</span><button class="movingToNotDone task-btn">remove</button></li>
-                <li class="done task"><span> dolor sit amet, consectetur adipisicing.</span><button class="movingToNotDone task-btn">remove</button></li>
+                <li class="done task"><span>read new chapter of one piece</span><button class="movingToNotDone task-btn">remove</button></li>
+                <li class="done task"><span> fix the bug in typescript code</span><button class="movingToNotDone task-btn">remove</button></li>
               </ul>
             </dev>
           </div>
-        </div>
-        <div class="tab-content" data-tab-id="2"><div class="todoList">
-          <dev class="not-done list">
-            <div class="list-header">
-              <h1>Not Done</h1>
-              <button class="add-task">+</button>
-            </div>
-            <ul class="not-done-taskList taskList">
-              <li class="not-done task"><span>download sass from npm </span><button class="movingToDoing task-btn">next</button></li>
-              <li class="not-done task"><span>buy the new manga volumn </span><button class="movingToDoing task-btn">next</button></li>
-              <li class="not-done task"><span>Lorem Lorem. ipsum dolor sit amet. </span><button class="movingToDoing task-btn">next</button></li>
-            </ul>
-          </dev>
-          <dev class="doing list">
-            <div class="list-header">
-              <h1>Doing</h1>
-              <button class="add-task">+</button>
-            </div>
-            <ul class="doing-taskList taskList">
-              <li class="doing task"><span>read for exam next week</span> <button class="movingToDone task-btn">next</button></li>
-            </ul>
-          </dev>
-          <dev class="done list">
-            <div class="list-header">
-              <h1>Done</h1>
-              <button class="add-task">+</button>
-            </div>
-            <ul class="done-taskList taskList">
-              <li class="done task"><span>read new chapter of one piece</span><button class="movingToNotDone task-btn">remove</button></li>
-              <li class="done task"><span> fix the bug in typescript code</span><button class="movingToNotDone task-btn">remove</button></li>
-            </ul>
-          </dev>
-        </div></div>
+        </div> -->
+        <!-- <div class="tab-content" data-tab-id="1"></div> -->
       </section>
     </main>
     <script src="js/app.js"></script>
     <script src="js/todo.js"></script>
+    <script src="js/add.js"></script>
   </body>
 </html>
