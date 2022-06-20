@@ -60,7 +60,6 @@ a {
   padding: 0.5em;
   display: flex;
   flex-direction: column;
-  overflow-y: auto;
 }
 .main .sidebar::-webkit-scrollbar {
   width: 0.5rem;
@@ -74,10 +73,13 @@ a {
   border: 2px solid #0d0d30;
 }
 .main .sidebar .tab-list {
+  max-height: 80vh;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
 }
 .main .sidebar .tab-button {
+  min-height: 40px;
   padding: 0.5em 1em;
   margin: 0.25rem 0.25rem;
   font-size: 1rem;
@@ -127,7 +129,7 @@ a {
 }
 
 .tab {
-  height: 100vh;
+  height: 100%;
 }
 .tab .home-page {
   padding: 1em;
@@ -191,6 +193,8 @@ a {
   height: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: -webkit-max-content;
+  grid-template-rows: max-content;
   background-color: #00b0d1;
   color: #f2ecff;
   position: relative;

@@ -33,12 +33,14 @@ body {
   padding: 0;
   overflow: hidden;
   box-sizing: border-box;
+
 }
 
 button,
 a {
   cursor: pointer;
 }
+
 
 //*animations
 @keyframes flash {
@@ -66,32 +68,34 @@ a {
   overflow: hidden;
 
   .sidebar {
-    height: 100%; //!changed
+    height: 100vh; //!changed
     padding: $padding;
     display: flex;
     flex-direction: column;
-    overflow-y: auto;
-
+    
     &::-webkit-scrollbar {
       width: 0.5rem;
     }
-
+    
     &::-webkit-scrollbar-track {
       background-color: $bg-clr;
     }
-
+    
     &::-webkit-scrollbar-thumb {
       background-color: $primary-clr;
       border-radius: $border;
       border: 2px solid $bg-clr;
     }
-
+    
     .tab-list {
+      max-height: 80vh;
       display: flex;
       flex-direction: column;
+      overflow-y: auto;
     }
-
+    
     .tab-button {
+      min-height: 40px;
       padding: $padding $padding * 2;
       margin: $margin/2 $margin / 2;
       font-size: $font-size;
@@ -202,6 +206,7 @@ a {
     height: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: max-content;
     @include color-theme(darken($primary-clr, 30%), $fg-clr);
     position: relative;
 
