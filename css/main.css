@@ -51,7 +51,7 @@ a {
 .main {
   display: grid;
   grid-template-columns: 1fr 6fr;
-  background-color: #0d0d30;
+  background-color: #1c1c1c;
   color: #f2ecff;
   overflow: hidden;
 }
@@ -65,12 +65,12 @@ a {
   width: 0.5rem;
 }
 .main .sidebar::-webkit-scrollbar-track {
-  background-color: #0d0d30;
+  background-color: #1c1c1c;
 }
 .main .sidebar::-webkit-scrollbar-thumb {
   background-color: #6be8ff;
   border-radius: 0.5em;
-  border: 2px solid #0d0d30;
+  border: 2px solid #1c1c1c;
 }
 .main .sidebar .tab-list {
   max-height: 80vh;
@@ -83,20 +83,23 @@ a {
   padding: 0.5em 1em;
   margin: 0.25rem 0.25rem;
   font-size: 1rem;
-  background-color: #0d0d30;
+  background-color: #1c1c1c;
   color: #f2ecff;
   border: 1px solid #6be8ff;
   border-radius: 1em;
-  transition: all 300ms ease-in-out;
+  transition: all 300ms ease;
+}
+.main .sidebar .tab-button:hover {
+  border: 1px solid #68daba;
 }
 .main .sidebar .tab-button_active {
   margin: 1rem 0.25rem;
-  background-color: #0d0d30;
+  background-color: #1c1c1c;
   color: #68daba;
   border: 1px solid #68daba;
   box-shadow: 0 0.25rem 0 #68daba;
   font-weight: bold;
-  text-shadow: 0 0 0.25rem #6be8ff;
+  text-shadow: 0 0 3px #6be8ff;
 }
 .main .sidebar #add-button {
   aspect-ratio: 1/1;
@@ -107,7 +110,7 @@ a {
   border: none;
   border-radius: 50%;
   background-color: #68daba;
-  color: #0d0d30;
+  color: #1c1c1c;
 }
 .main .sidebar #add-button:hover {
   box-shadow: 0 0 0rem #6be8ff;
@@ -152,7 +155,7 @@ a {
   border: none;
   border-radius: 0.5em;
   background-color: #68daba;
-  color: #0d0d30;
+  color: #1c1c1c;
 }
 .tab .home-page .home-btn:hover {
   box-shadow: 0 0 0rem #6be8ff;
@@ -211,7 +214,7 @@ a {
   position: absolute;
   top: 0;
   right: 0;
-  background-color: #0d0d30;
+  background-color: #1c1c1c;
   -webkit-clip-path: polygon(0 0, 0% 100%, 22% 100%);
           clip-path: polygon(0 0, 0% 100%, 22% 100%);
   z-index: 5;
@@ -226,7 +229,7 @@ a {
 }
 .tab .list.not-done .task-btn {
   background-color: hsl(60deg, 73%, 60%);
-  color: #0d0d30;
+  color: #1c1c1c;
 }
 .tab .list.doing .list-header {
   border: 2px solid hsl(60deg, 73%, 60%);
@@ -234,7 +237,7 @@ a {
 }
 .tab .list.doing .task-btn {
   background-color: hsl(147deg, 73%, 60%);
-  color: #0d0d30;
+  color: #1c1c1c;
 }
 .tab .list.done .list-header {
   border: 2px solid hsl(147deg, 73%, 60%);
@@ -242,14 +245,14 @@ a {
 }
 .tab .list.done .task-btn {
   background-color: hsl(348deg, 73%, 60%);
-  color: #0d0d30;
+  color: #1c1c1c;
 }
 .tab .list .list-header {
   padding: 0.5em;
   display: flex;
   justify-content: space-between;
   border-radius: 0.5em;
-  background-color: #0d0d30;
+  background-color: #1c1c1c;
   color: #f2ecff;
 }
 .tab .list .add-task {
@@ -257,7 +260,7 @@ a {
   font-size: 1rem;
   border: none;
   border-radius: 0.5em;
-  background-color: #232380;
+  background-color: #4f4f4f;
   color: #f2ecff;
 }
 .tab .list .add-task:hover {
@@ -287,7 +290,7 @@ a {
   padding: 1em 0.5em 2.5em 0.5em;
   border-radius: 0.5em;
   position: relative;
-  background-color: #181858;
+  background-color: #363636;
   color: #f2ecff;
   transition: all 300ms ease-in-out;
 }
@@ -304,7 +307,7 @@ a {
   display: block;
 }
 .tab .list .task:not(:first-child) {
-  box-shadow: 0 -1rem 1rem #0d0d30;
+  box-shadow: 0 -1rem 1rem #1c1c1c;
   margin-top: -1rem;
 }
 .tab .list .task:not(:first-child):hover {

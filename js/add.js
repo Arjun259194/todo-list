@@ -4,14 +4,18 @@ const appendElement = (parentElementSelector,element) => {
   $(parentElementSelector).appendChild(element);
 }
 
-const createTab = ()=>{
+const defaultTitle = () => `List #${tabCount}`;
+
+const createTab = (title)=>{
   const newList = document.createElement('div');
   newList.classList.add('tab-content');
   newList.dataset.tabId = tabCount;
   newList.innerHTML =
   `<div class="todoList">
   <!-- h2 is temporary-->
-      <h2 style="text-align: center; grid-column:1/span 3;margin:1rem 0;">list #${tabCount}</h2>
+      <h2 style="text-align: center; grid-column:1/span 3;margin:1rem 0; text-transform: uppercase;">${
+        title === false ? defaultTitle() : title
+      }</h2>
       <dev class="not-done list">
         <div class="list-header">
           <h1>Not Done</h1>
@@ -44,9 +48,11 @@ const createTab = ()=>{
   return newList;
 }
 
-const createTabBtn = ()=>{
+const createTabBtn = (title)=>{
   const tabBtn = document.createElement('button');
-  const btnText = document.createTextNode(`list #${tabCount}`);
+  const btnText = document.createTextNode(`${
+    title === false ? defaultTitle() : title
+  }`);
   tabBtn.appendChild(btnText);
   tabBtn.classList.add('tab-button');
   tabBtn.dataset.tabButtonId = tabCount;
@@ -54,16 +60,22 @@ const createTabBtn = ()=>{
   return tabBtn;
 }
 
+function titleRequest() {
+  let titleReq = prompt("List name:", `project ${tabCount}`);
+  if (titleReq !== null) {
+    return (titleReq == "") ? false : titleReq;
+  }
+}
+
 const createList = ()=>{
   tabCount++;
-  const tab = createTab();
-  const tabButton = createTabBtn();
-
+  let ListTitle = titleRequest();
+  if (ListTitle === undefined) return;
+  const tab = createTab(ListTitle);
+  const tabButton = createTabBtn(ListTitle);
   appendElement('.tab',tab);
   appendElement('.tab-list',tabButton);
-
   setup();
   tabButton.click();
   taskManegament();
-
 }
