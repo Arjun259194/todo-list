@@ -346,3 +346,62 @@ a {
     display: block;
   }
 }
+
+#input-box{
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background-color: rgba(28, 28, 28, 0.651);
+
+  transition: all 300ms ease;
+
+  .input-form{
+    width: 50%;
+    padding: $padding;
+    display: flex;
+    flex-direction: column;
+    background-image: linear-gradient(90deg,lighten($bg-clr,10%),$bg-clr);
+    color: $fg-clr;
+    opacity: 100%;
+
+    h4{
+      font-size: $font-size * 2.5;
+      margin: $margin 0;
+    }
+
+    input{
+      padding: $padding $padding / 2;
+      margin: $margin 0;
+      font-size: 1rem;
+      outline: none;
+      border: none;
+      @include color-theme(lighten($bg-clr,20%), $fg-clr);
+    }
+
+    .btns{
+      width: 100%;
+      margin-top: $margin;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+
+      button{
+        padding: $padding;
+        margin: $margin / 4;
+        border: none;
+        text-transform: uppercase;
+        font-weight: bold;
+
+        &:first-child{
+          @include color-theme($secondary-clr, $bg-clr);
+        }
+        
+        &:last-child{
+          @include color-theme($ndone, $bg-clr);
+        }
+      }
+    }
+  }
+}
