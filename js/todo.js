@@ -50,15 +50,3 @@ function taskManegament() {
     })
   })
 }
-
-const setTabBtnEvent = () => {
-  document.querySelectorAll(".tab-button").forEach(element => {
-    element.addEventListener('click', () => {
-      setTimeout(() => {
-        taskManegament()
-      },0);
-    })
-  })
-}
-
-setTabBtnEvent();

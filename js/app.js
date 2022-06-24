@@ -14,6 +14,7 @@ function setup() {
 
       btn.classList.add("tab-button_active");
       tabToActive.classList.add("tab-content_active");
+      taskManegament()
     });
   });
 }

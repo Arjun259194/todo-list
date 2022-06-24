@@ -1,3 +1,4 @@
+//*system to add new lists
 var tabCount = 0;
 
 const appendElement = (parentElementSelector, element) => {
@@ -6,15 +7,14 @@ const appendElement = (parentElementSelector, element) => {
 
 const defaultTitle = () => `List #${tabCount}`;
 
-const createTab = (title) => {
+const createTab = title => {
   const newList = document.createElement('div');
   newList.classList.add('tab-content');
   newList.dataset.tabId = tabCount;
   newList.innerHTML =
     `<div class="todoList">
   <!-- h2 is temporary-->
-      <h2 style="text-align: center; grid-column:1/span 3;margin:1rem 0; text-transform: uppercase;">${title === false ? defaultTitle() : title
-    }</h2>
+      <h2 style="text-align: center; grid-column:1/span 3;margin:1rem 0; text-transform: uppercase;">${title === false ? defaultTitle() : title}</h2>
       <dev class="not-done list">
         <div class="list-header">
           <h1>Not Done</h1>
@@ -47,7 +47,7 @@ const createTab = (title) => {
   return newList;
 }
 
-const createTabBtn = (title) => {
+const createTabBtn = title => {
   const tabBtn = document.createElement('button');
   const btnText = document.createTextNode(`${title === false ? defaultTitle() : title
     }`);
@@ -75,14 +75,33 @@ const cancelBtn = () => {
   return;
 }
 
-const createList = (ListTitle) => {
+const createList = ListTitle => {
   tabCount++;
   const tab = createTab(ListTitle);
   const tabButton = createTabBtn(ListTitle);
   appendElement('.tab', tab);
   appendElement('.tab-list', tabButton);
   setup();
-  setTabBtnEvent();
   tabButton.click();
-  // taskManegament();
+}
+
+//*system to add new tasks
+
+const noteReq = () => {
+  let ranNotes = ["go to gym", "do homework", "send email to boss", "pay light bill", "order xyz from amezon", "debug the adding code", "run test on fakker api"]
+  let index = Math.floor(Math.random() * ranNotes.length);
+
+  return ranNotes[index]
+}
+
+const addtask = () => {
+  const taskNote = noteReq();
+}
+
+const addTaskEventListner = () => {
+  $(".tab-content_active").querySelectorAll('.add-task')
+    .addTaskEventListner('click', (btn) => {
+      console.log("add button clicked");
+      console.log(btn.parentNode.parentNode);
+    })
 }
