@@ -82,6 +82,7 @@ const createList = (ListTitle) => {
   appendElement('.tab', tab);
   appendElement('.tab-list', tabButton);
   setup();
+  setTabBtnEvent();
   tabButton.click();
-  taskManegament();
+  // taskManegament();
 }
