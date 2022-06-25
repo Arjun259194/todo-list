@@ -84,6 +84,15 @@ const createList = (ListTitle) => {
 
 //*system to add new tasks
 
+const classNameFormatter = (className) => {
+  result = className
+    .split(" ")
+    .map((s) => "." + s)
+    .join(" ")
+    .replace(" ", "");
+  return result;
+};
+
 const noteReq = () => {
   let ranNotes = ["go to gym", "do homework", "send email to boss", "pay light bill", "order xyz from amezon", "debug the adding code", "run test on fakker api"];
   let index = Math.floor(Math.random() * ranNotes.length);
