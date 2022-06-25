@@ -35,13 +35,13 @@ function taskManegament() {
       const text = movingTask.querySelector('span').innerText;
       const taskList = movingTask.parentNode;
       taskList.removeChild(movingTask);
-      activeList.querySelector('.done-taskList').appendChild(createTask(text, 'movingToNotDone task-btn', 'done task', 'remove'));
+      activeList.querySelector('.done-taskList').appendChild(createTask(text, 'remove task-btn', 'done task', 'remove'));
       taskManegament();
     })
   })
 
   //*done to not-done
-  activeList.querySelectorAll('.movingToNotDone').forEach(e => {
+  activeList.querySelectorAll('.remove').forEach(e => {
     e.addEventListener('click', () => {
       const movingTask = e.parentNode;
       const taskList = movingTask.parentNode;

@@ -38,7 +38,7 @@ const createTab = (title) => {
           <button class="add-task">+</button>
         </div>
         <ul class="done-taskList taskList">
-          <li class="done task"><span>demo: task that is done</span><button class="movingToNotDone task-btn">remove</button></li>
+          <li class="done task"><span>demo: task that is done</span><button class="remove task-btn">remove</button></li>
         </ul>
       </dev>
     </div>`;
