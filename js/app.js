@@ -14,12 +14,14 @@ function setup() {
 
       btn.classList.add("tab-button_active");
       tabToActive.classList.add("tab-content_active");
-      taskManegament()
+      taskManegament();
+      addTaskEventListener();
     });
   });
 }
 
-document.addEventListener('DOMContentLoaded',()=>{
+document.addEventListener("DOMContentLoaded", () => {
   setup();
-  document.querySelector('.tab-button').click();
-})
+  document.querySelector(".tab-button").click();
+  autoCreateList(1);
+});
