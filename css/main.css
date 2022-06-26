@@ -324,7 +324,7 @@ a {
   display: block;
 }
 
-#input-box {
+.input-box {
   display: none;
   justify-content: center;
   align-items: center;
@@ -334,7 +334,8 @@ a {
   background-color: rgba(28, 28, 28, 0.651);
   transition: all 300ms ease;
 }
-#input-box .input-form {
+
+#list-title .input-form {
   width: 50%;
   padding: 0.5em;
   display: flex;
@@ -343,11 +344,11 @@ a {
   color: #f2ecff;
   opacity: 100%;
 }
-#input-box .input-form h4 {
+#list-title .input-form h4 {
   font-size: 2.5rem;
   margin: 0.5rem 0;
 }
-#input-box .input-form input {
+#list-title .input-form input {
   padding: 0.5em 0.25em;
   margin: 0.5rem 0;
   font-size: 1rem;
@@ -356,24 +357,57 @@ a {
   background-color: #4f4f4f;
   color: #f2ecff;
 }
-#input-box .input-form .btns {
+#list-title .input-form .btns {
   width: 100%;
   margin-top: 0.5rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
-#input-box .input-form .btns button {
+#list-title .input-form .btns button {
   padding: 0.5em;
   margin: 0.125rem;
   border: none;
   text-transform: uppercase;
   font-weight: bold;
 }
-#input-box .input-form .btns button:first-child {
+#list-title .input-form .btns button:first-child {
   background-color: #68daba;
   color: #1c1c1c;
 }
-#input-box .input-form .btns button:last-child {
+#list-title .input-form .btns button:last-child {
+  background-color: hsl(348deg, 73%, 60%);
+  color: #1c1c1c;
+}
+
+#task-note .input-form {
+  width: 40%;
+  padding: 0.75em;
+  display: grid;
+  place-content: center;
+  grid-template-columns: 3fr 1fr 1fr;
+  gap: 0.5em;
+  border-radius: 1em;
+  background-color: #1c1c1c;
+  border: 2px solid #68daba;
+  transition: all 500ms ease;
+}
+#task-note .input-form:hover {
+  border-radius: 0.25em;
+}
+#task-note .input-form input {
+  padding: 0.25em;
+  outline: none;
+}
+#task-note .input-form .task-input-btn {
+  border: none;
+  border-radius: 0.25em;
+  text-transform: capitalize;
+}
+#task-note .input-form .task-input-btn:first-of-type {
+  background-color: hsl(147deg, 73%, 60%);
+  color: #1c1c1c;
+}
+#task-note .input-form .task-input-btn:last-of-type {
   background-color: hsl(348deg, 73%, 60%);
   color: #1c1c1c;
 }/*# sourceMappingURL=main.css.map */

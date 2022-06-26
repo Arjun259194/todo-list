@@ -70,7 +70,8 @@
         :</div>-->
       </section>
     </main>
-    <div id="input-box">
+    <!--? List title input box -->
+    <div id="list-title" class="input-box">
       <div class="input-form">
         <h4>Enter project name</h4>
         <input type="text" name="listTitle" id="listTitle" autofocus />
@@ -78,6 +79,15 @@
           <button onclick="createBtn()" id="cbtn">Create</button>
           <button onclick="cancelBtn()">cancel</button>
         </div>
+      </div>
+    </div>
+
+    <!--? task note input box -->
+    <div id="task-note" class="input-box">
+      <div class="input-form">
+        <!-- <label for="taskNote">Enter </label> -->
+        <input type="text" name="taskNote" id="taskNote" placeholder="Task-note"/>
+        <button class="task-input-btn" id="task-input-ok">OK</button><button class="task-input-btn" id="task-input-no">cancel</button>
       </div>
     </div>
     <script src="js/app.js"></script>

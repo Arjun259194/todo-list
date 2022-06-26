@@ -56,18 +56,18 @@ const createTabBtn = (title) => {
   return tabBtn;
 };
 
-const titleRequest = () => ($("#input-box").style.display = "flex");
+const titleRequest = () => ($("#list-title").style.display = "flex");
 
 const createBtn = () => {
   let title = $("#listTitle").value;
-  $("#input-box").style.display = "none";
+  $("#list-title").style.display = "none";
   title = title === "" || title === null ? false : title;
   createList(title);
   return;
 };
 
 const cancelBtn = () => {
-  $("#input-box").style.display = "none";
+  $("#list-title").style.display = "none";
   console.warn("list not created");
   return;
 };
@@ -94,12 +94,26 @@ const classNameFormatter = (className) => {
 };
 
 const noteReq = () => {
-  //todo: create a input pop-up box for user input
-  let ranNotes = ["go to gym", "do homework", "send email to boss", "pay light bill", "order xyz from amezon", "debug the adding code", "run test on fakker api"];
-  let index = Math.floor(Math.random() * ranNotes.length);
-
-  return ranNotes[index];
+  //!bug here
+  $("#task-note").style.display = "flex";
+  $("#task-input-ok").addEventListener('click',()=>{
+    const value =  $("#taskNote").value;
+    $("#task-note").style.display = "none";
+    return value;
+  })
+  $("#task-input-no").addEventListener('click',()=>{
+    $("#task-note").style.display = "none";
+    return false;
+  })
 };
+
+// const noteReq = () => {
+//   //todo: create a input pop-up box for user input
+//   let ranNotes = ["go to gym", "do homework", "send email to boss", "pay light bill", "order xyz from amezon", "debug the adding code", "run test on fakker api"];
+//   let index = Math.floor(Math.random() * ranNotes.length);
+
+//   return ranNotes[index];
+// };
 
 const addtask = (taskObj) => {
   const task = createTask(taskObj.taskNote, taskObj.buttonClass, taskObj.taskClassName, taskObj.buttonText);
@@ -115,14 +129,19 @@ const addTaskEventListener = () => {
     .querySelectorAll(".add-task")
     .forEach((element) => {
       element.addEventListener("click", () => {
-        const taskData = {};
-        taskData.taskNote = noteReq();
-        taskData.list = element.parentNode.parentNode;
-        taskData.taskList = taskData.list.querySelector(".taskList");
-        taskData.taskClassName = taskData.taskList.querySelector(".task").className;
-        taskData.taskButton = taskData.list.querySelector(".task-btn");
-        taskData.buttonClass = taskData.taskButton.className;
-        taskData.buttonText = taskData.taskButton.innerText;
+        const list = element.parentNode.parentNode;
+        const taskList = list.querySelector(".taskList");
+        const taskButton = list.querySelector(".task-btn");
+
+        const taskData = {
+          taskNote: noteReq(),
+          taskClassName: taskList.querySelector(".task").className,
+          buttonClass: taskButton.className,
+          buttonText: taskButton.innerText,
+        };
+
+        if (taskData.taskNote === false) return;
+
         addtask(taskData);
         taskManegament();
       });
