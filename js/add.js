@@ -94,14 +94,20 @@ const classNameFormatter = (className) => {
 };
 
 const noteReq = () => {
+  //todo: create a input pop-up box for user input
   let ranNotes = ["go to gym", "do homework", "send email to boss", "pay light bill", "order xyz from amezon", "debug the adding code", "run test on fakker api"];
   let index = Math.floor(Math.random() * ranNotes.length);
 
   return ranNotes[index];
 };
 
-const addtask = taskObj => {
-  //? start from here
+const addtask = (taskObj) => {
+  const task = createTask(taskObj.taskNote, taskObj.buttonClass, taskObj.taskClassName, taskObj.buttonText);
+  try {
+    taskObj.taskList.appendChild(task);
+  } catch (err) {
+    alert("there is an error:\n", err);
+  }
 };
 
 const addTaskEventListener = () => {
@@ -109,16 +115,16 @@ const addTaskEventListener = () => {
     .querySelectorAll(".add-task")
     .forEach((element) => {
       element.addEventListener("click", () => {
-        console.log("add button clicked");
         const taskData = {};
+        taskData.taskNote = noteReq();
         taskData.list = element.parentNode.parentNode;
         taskData.taskList = taskData.list.querySelector(".taskList");
-        taskData.taskListClassName = classNameFormatter(taskData.taskList.className);
-        taskData.taskButton = taskData.list.querySelector('.task-btn');
-        taskData.buttonClass = classNameFormatter(taskData.taskButton.className);
-        taskData.buttonText = taskData.taskButton.innerText
-
+        taskData.taskClassName = taskData.taskList.querySelector(".task").className;
+        taskData.taskButton = taskData.list.querySelector(".task-btn");
+        taskData.buttonClass = taskData.taskButton.className;
+        taskData.buttonText = taskData.taskButton.innerText;
         addtask(taskData);
+        taskManegament();
       });
     });
 };
