@@ -100,8 +100,8 @@ const noteReq = () => {
   return ranNotes[index];
 };
 
-const addtask = () => {
-  const taskNote = noteReq();
+const addtask = taskObj => {
+  //? start from here
 };
 
 const addTaskEventListener = () => {
@@ -110,12 +110,15 @@ const addTaskEventListener = () => {
     .forEach((element) => {
       element.addEventListener("click", () => {
         console.log("add button clicked");
-        const list = element.parentNode.parentNode;
-        const taskList = list.querySelector(".taskList");
-        const taskListClassName = taskList.className;
-        const formatedTaskListClassName = classNameFormatter(taskListClassName);
-        console.log(formatedTaskListClassName);
-        
+        const taskData = {};
+        taskData.list = element.parentNode.parentNode;
+        taskData.taskList = taskData.list.querySelector(".taskList");
+        taskData.taskListClassName = classNameFormatter(taskData.taskList.className);
+        taskData.taskButton = taskData.list.querySelector('.task-btn');
+        taskData.buttonClass = classNameFormatter(taskData.taskButton.className);
+        taskData.buttonText = taskData.taskButton.innerText
+
+        addtask(taskData);
       });
     });
 };
