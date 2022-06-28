@@ -27,57 +27,73 @@
             <a href="pages/info.html" target="_blank"><button class="home-btn">Get started</button></a>
           </div>
         </div>
-        <!-- !:<div class="tab-content" data-tab-id="1">
-          !:<div class="todoList">
-            !:<dev class="not-done list">
-              !:<div class="list-header">
-                !:<h1>Not Done</h1>
-                !:<button class="add-task">+</button>
-              !:</div>
-              !:<ul class="not-done-taskList taskList">
-                !:<li class="not-done task"><span>Lorem ipsum dolor sit amet. </span><button class="movingToDoing task-btn">next</button></li>
-                !:<li class="not-done task"><span>Lorem ipsum dolor sit </span><button class="movingToDoing task-btn">next</button></li>
-                !:<li class="not-done task"><span>Lorem ipsum amet. </span><button class="movingToDoing task-btn">next</button></li>
-                !:<li class="not-done task"><span>Lorem dolor sit amet. </span><button class="movingToDoing task-btn">next</button></li>
-                !:<li class="not-done task"><span>Lorem Lorem. ipsum dolor sit amet. </span><button class="movingToDoing task-btn">next</button></li>
-              !:</ul>
-            !:</dev>
-            !:<dev class="doing list">
-              !:<div class="list-header">
-                !:<h1>Doing</h1>
-                !:<button class="add-task">+</button>
-              !:</div>
-              !:<ul class="doing-taskList taskList">
-                !:<li class="doing task"><span>Lorem ipsum dolor sit.</span> <button class="movingToDone task-btn">next</button></li>
-                !:<li class="doing task"><span>Lorem ipsum .</span> <button class="movingToDone task-btn">next</button></li>
-              !:</ul>
-            !:</dev>
-            !:<dev class="done list">
-              !:<div class="list-header">
-                !:<h1>Done</h1>
-                !:<button class="add-task">+</button>
-              !:</div>
-              !:<ul class="done-taskList taskList">
-                !:<li class="done task"><span>Lorem ipsum dolor sit amet, consectetur adipisicing.</span><button class="movingToNotDone task-btn">remove</button></li>
-                !:<li class="done task"><span> dolor sit amet, consectetur adipisicing.</span><button class="movingToNotDone task-btn">remove</button></li>
-              !:</ul>
-            !:</dev>
-          !:</div>
-        !:</div>-->
+        <!-- *:<div class="tab-content" data-tab-id="1">
+          *:<div class="todoList">
+
+            *:<dev class="not-done list">
+              *:<div class="list-header">
+                :<h1>Not Done</h1>
+                *:<button class="add-task">+</button>
+              :</div>
+              *:<ul class="not-done-taskList taskList">
+                *:<li class="not-done task"><span>Lorem ipsum dolor sit amet. </span><button class="movingToDoing task-btn">next</button></li>
+                :<li class="not-done task"><span>Lorem ipsum dolor sit </span><button class="movingToDoing task-btn">next</button></li>
+                :<li class="not-done task"><span>Lorem ipsum amet. </span><button class="movingToDoing task-btn">next</button></li>
+                :<li class="not-done task"><span>Lorem dolor sit amet. </span><button class="movingToDoing task-btn">next</button></li>
+                :<li class="not-done task"><span>Lorem Lorem. ipsum dolor sit amet. </span><button class="movingToDoing task-btn">next</button></li>
+              :</ul>
+            :</dev>
+
+            *:<dev class="doing list">
+              *:<div class="list-header">
+                :<h1>Doing</h1>
+                *:<button class="add-task">+</button>
+              :</div>
+              *:<ul class="doing-taskList taskList">
+                *:<li class="doing task"><span>Lorem ipsum dolor sit.</span> <button class="movingToDone task-btn">next</button></li>
+                :<li class="doing task"><span>Lorem ipsum .</span> <button class="movingToDone task-btn">next</button></li>
+              :</ul>
+            :</dev>
+
+            *:<dev class="done list">
+              *:<div class="list-header">
+                :<h1>Done</h1>
+                *:<button class="add-task">+</button>
+              :</div>
+              *:<ul class="done-taskList taskList">
+                *:<li class="done task"><span>Lorem ipsum dolor sit amet, consectetur adipisicing.</span><button class="remove task-btn">remove</button></li>
+                :<li class="done task"><span> dolor sit amet, consectetur adipisicing.</span><button class="remove task-btn">remove</button></li>
+              :</ul>
+            :</dev>
+
+          :</div>
+        :</div>-->
       </section>
     </main>
-    <div id="input-box">
+    <!--? List title input box -->
+    <div id="list-title" class="input-box">
       <div class="input-form">
         <h4>Enter project name</h4>
-        <input type="text" name="listTitle" id="listTitle" autofocus/>
+        <input type="text" name="listTitle" id="listTitle" autofocus />
         <div class="btns">
           <button onclick="createBtn()" id="cbtn">Create</button>
           <button onclick="cancelBtn()">cancel</button>
         </div>
       </div>
     </div>
+
+    <!--? task note input box -->
+    <div id="task-note" class="input-box">
+      <div class="input-form">
+        <!-- <label for="taskNote">Enter </label> -->
+        <input type="text" name="taskNote" id="taskNote" placeholder="Task-note"/>
+        <button class="task-input-btn" id="task-input-ok">OK</button><button class="task-input-btn" id="task-input-no">cancel</button>
+      </div>
+    </div>
     <script src="js/app.js"></script>
     <script src="js/todo.js"></script>
     <script src="js/add.js"></script>
+    <!--!developer tool (comment or remove it)-->
+    <script src="js/dev-debug.js"></script>
   </body>
 </html>
