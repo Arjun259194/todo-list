@@ -83,45 +83,14 @@ const createList = (ListTitle) => {
 };
 
 //*system to add new tasks
-
-const classNameFormatter = (className) => {
-  result = className
-    .split(" ")
-    .map((s) => "." + s)
-    .join(" ")
-    .replace(" ", "");
-  return result;
-};
-
 const noteReq = () => {
-  //!bug here
-  $("#task-note").style.display = "flex";
-  $("#task-input-ok").addEventListener('click',()=>{
-    const value =  $("#taskNote").value;
-    $("#task-note").style.display = "none";
-    return value;
-  })
-  $("#task-input-no").addEventListener('click',()=>{
-    $("#task-note").style.display = "none";
-    return false;
-  })
+  const input = prompt("What's your name?");
+  return input;
 };
-
-// const noteReq = () => {
-//   //todo: create a input pop-up box for user input
-//   let ranNotes = ["go to gym", "do homework", "send email to boss", "pay light bill", "order xyz from amezon", "debug the adding code", "run test on fakker api"];
-//   let index = Math.floor(Math.random() * ranNotes.length);
-
-//   return ranNotes[index];
-// };
 
 const addtask = (taskObj) => {
   const task = createTask(taskObj.taskNote, taskObj.buttonClass, taskObj.taskClassName, taskObj.buttonText);
-  try {
-    taskObj.taskList.appendChild(task);
-  } catch (err) {
-    alert("there is an error:\n", err);
-  }
+  taskObj.taskList.appendChild(task);
 };
 
 const addTaskEventListener = () => {
@@ -129,12 +98,13 @@ const addTaskEventListener = () => {
     .querySelectorAll(".add-task")
     .forEach((element) => {
       element.addEventListener("click", () => {
-        const list = element.parentNode.parentNode;
+        const list = element.parentElement.parentElement;
         const taskList = list.querySelector(".taskList");
         const taskButton = list.querySelector(".task-btn");
 
         const taskData = {
           taskNote: noteReq(),
+          taskList:taskList,
           taskClassName: taskList.querySelector(".task").className,
           buttonClass: taskButton.className,
           buttonText: taskButton.innerText,
